@@ -8,8 +8,8 @@ from sklearn.model_selection import learning_curve
 from sklearn.model_selection import StratifiedKFold
 from preprocess import preprocess_data
 
-
-df = pd.read_csv(r"./data/train.csv") # load data
+# load data
+df = pd.read_csv(r"./data/train.csv") 
 X = preprocess_data(df)
 y = df['Survived']
 
@@ -17,6 +17,7 @@ X_temp, X_test, y_temp, y_test = train_test_split(X, y, test_size = 0.2, random_
 X_train, X_val, y_train, y_val = train_test_split(X_temp, y_temp, test_size = 0.25, random_state=42)
 columns_used = X_train.columns.tolist()
 
+# build logistic regression model
 # choose best C value
 C_values = np.linspace(0.001, 100, 100)  
 val_accuracy = []
@@ -29,8 +30,16 @@ for i in C_values:
   # print(f'C value:{i:8.3f}, accuracy:{accuracy:.3f}')
 
 best_C = C_values[np.argmax(val_accuracy)]
-print(f'best C value:{best_C:.3f}, best accuracy:{max(val_accuracy):.3f}')
+best_accuracy = max(val_accuracy)
+print(f'best C value:{best_C:.3f}, best accuracy:{best_accuracy:.3f}')
 # best C value:1.011, best accuracy:0.820
+
+plt.plot(C_values, val_accuracy)
+plt.scatter(best_C,best_accuracy, color = 'red')
+plt.xlabel('C values')
+plt.ylabel('Validation Accuracy')
+plt.title('Validation Accuracy vs C values (Logistic Regression)')
+plt.show()
 
 # draw learning curve
 X_trainval = np.concatenate((X_train, X_val), axis=0) 
