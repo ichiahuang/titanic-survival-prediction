@@ -8,7 +8,9 @@ from sklearn.model_selection import StratifiedKFold
 from xgboost import XGBClassifier
 from preprocess import preprocess_data
 
-def final_xgb_model_predict(X_test):
+def final_xgb_model_predict(X_trainval, y_trainval,X_test):
+    best_round = 118
+    best_lambda =  57.576
     best_n_estimators = best_round + 1
     final_xgb_model = XGBClassifier(
         n_estimators = best_n_estimators,
@@ -34,6 +36,7 @@ if __name__ == '__main__':
     # build XGBoost model
     # choose best lambda
     lambdas = np.linspace(0.001, 100, 100)
+    best_rounds = []
     val_accuracy = []
     val_logloss = []
     X_train = np.array(X_train)  # 比 np.array() 更安全，不會複製已為array的數據
@@ -56,6 +59,7 @@ if __name__ == '__main__':
         )
 
         best_round = xgb_model.best_iteration
+        best_rounds.append(best_round)
         y_val_pred = xgb_model.predict(X_val, iteration_range=(0, best_round + 1))
         accuracy = accuracy_score(y_val, y_val_pred)
         val_accuracy.append(accuracy)
@@ -67,8 +71,9 @@ if __name__ == '__main__':
 
     best_lambda = lambdas[np.argmax(val_accuracy)]
     best_accuracy = max(val_accuracy)
-    print(f'best lambda:{best_lambda:7.3f}, best accuracy:{best_accuracy:.3f}')
-    # best lambda: 57.576, best accuracy:0.871
+    best_round = best_rounds[np.argmax(val_accuracy)]
+    print(f'best lambda:{best_lambda:7.3f}, best accuracy:{best_accuracy:.3f}, best round:{best_round:.3f}')
+    # best lambda: 57.576, best accuracy:0.871, best round:118
 
     # plot best lambda
     plt.plot(lambdas, val_accuracy) 
