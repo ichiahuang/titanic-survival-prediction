@@ -96,7 +96,7 @@ I also plotted learning curves to see how the models learn:
 <img width="450" alt="Image" src="https://github.com/user-attachments/assets/b594c15f-ef00-4ef6-82cc-eb46a49911fa" />
 </p>
 
-For **Logisitic Regression**, the training and validation accuracy are close. This means the model is not overfitting, and this model learns in a stable way. But the accuracy is only 82%, so this model is not a very good model.
+For **Logisitic Regression**, the training and validation accuracy are close. This means the model is not overfitting, and this model learns in a stable way. However, with only 82% accuracy, this model is not very competitive for this task.
 
 <p align="center">
 <img width="450" alt="Image" src="https://github.com/user-attachments/assets/470cceb7-80a0-4d66-ad8b-9ed8838cc074" />
@@ -119,6 +119,51 @@ For **XGBoost**, the training accuracy is very high, but the validation accuracy
 | 3    | E (Cabin Title)     | +1.212      | Pclass          | 1.850  |
 
 This difference shows how linear and tree-based models may focus on different aspects of the same data.
+
+## Kaggle competition result
+
+<img width="1300" height="279" alt="Image" src="https://github.com/user-attachments/assets/05003790-f17f-4f64-b5f4-6b96b3022e25" />
+<img width="1300" height="171" alt="Image" src="https://github.com/user-attachments/assets/6d8d8c51-2984-43af-96a9-17ba8a3b3302" />
+
+
+## How to run
+You can click the code files below to check each step:
+- [preprocess code](./code/preprocess.py)
+- Clean data and do feature engineering
+- [logistic model code](./code/logistic_model.py)
+- Train logistic regression and tune C value
+- [XGBoost model code](./code/XGBoost_model)
+-  Train XGBoost and tune hyperparameters
+- [logistic predict code](./code/logistic_predict)
+- Predict and output result with logistic model
+- [XGBoost predict code](./code/XGBoost_predict)
+- Predict and output result with XGBoost model
+
+## Conclusion
+
+This project analysed the Titanic passenger dataset and used machine learning model to predict survival outcomes.
+
+- Through feature engineering and hyperparameter tuning, XGBoost model has the highest performance, with a Kaggle score of 0.77511.
+- Key features that contributed to the model’s performance included:
+  - Name Title
+  - Sex
+  - Class
+  - Cabin Title
+- Logistic Regression model offered a stable baseline, while XGBoost model showed better generalization on the test set.
+
+This project shows my ability to handle data preprocessing, model building and result interpretation using **Python**, **Scikit-learn** and **XGBoost**.
+
+## Reflection
+This was my first machine learning project and I learned a lot from it.
+
+- I try feature engineering like one-hot and extract title from `Name`, It's very fun but not always easy.
+- I also noticed model type and tuning can change the result a lot.
+- Sometimes I am not sure how to do things like learning curve or how to see feature importance. But after I try and google some things, I feel better with it.
+
+In the future, I hope to explore deep learning and more advanced data problems. I think this project really helps me understand machine learning more.
+
+
+*Note: English is not my first language, This README is written by myself with some grammar checkingg tools.*
 
 
 
