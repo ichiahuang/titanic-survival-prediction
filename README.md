@@ -154,7 +154,7 @@ This project analysed the Titanic passenger dataset and used machine learning mo
   - Cabin Title
 - Logistic Regression model offered a stable baseline, while XGBoost model showed better generalization on the test set.
 
-This project shows my ability to handle data preprocessing, model building and result interpretation using **Python**, **Scikit-learn** and **XGBoost**.
+I think this project not only helps me strengthen my understanding on data preprocess and model building but also on real-world task of machine learning. I am still improving and learning knowledge of machine learning field. I think this project reflects my learning journey more than a polished final product.
 
 ## Reflection
 This was my first machine learning project and I learned a lot from it.
