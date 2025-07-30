@@ -122,22 +122,25 @@ This difference shows how linear and tree-based models may focus on different as
 
 ## Kaggle competition result
 
+Logistic Regression Model:
 <img width="1300" height="279" alt="Image" src="https://github.com/user-attachments/assets/05003790-f17f-4f64-b5f4-6b96b3022e25" />
+
+XGBoost model:
 <img width="1300" height="171" alt="Image" src="https://github.com/user-attachments/assets/6d8d8c51-2984-43af-96a9-17ba8a3b3302" />
 
 
 ## How to run
 You can click the code files below to check each step:
 - [preprocess code](./code/preprocess.py)
-- Clean data and do feature engineering
+  - Clean data and do feature engineering
 - [logistic model code](./code/logistic_model.py)
-- Train logistic regression and tune C value
+  - Train logistic regression and tune C value
 - [XGBoost model code](./code/XGBoost_model)
--  Train XGBoost and tune hyperparameters
+  -  Train XGBoost and tune hyperparameters
 - [logistic predict code](./code/logistic_predict)
-- Predict and output result with logistic model
+  - Predict and output result with logistic model
 - [XGBoost predict code](./code/XGBoost_predict)
-- Predict and output result with XGBoost model
+  - Predict and output result with XGBoost model
 
 ## Conclusion
 
