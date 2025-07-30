@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import learning_curve
 from sklearn.model_selection import StratifiedKFold
@@ -127,7 +127,25 @@ if __name__ == '__main__':
     )
     final_xgb_model.fit(X_trainval, y_trainval)
     y_test_pred = final_xgb_model.predict(np.array(X_test))
+    xgb_importanca = final_xgb_model.get_booster().get_score(importance_type = 'gain')
+    xgb_df = pd.DataFrame.from_dict(
+        xgb_importanca,
+        orient = 'index',
+        columns = ['importance']
+    )
+    xgb_df.index.name = 'feature'
+    top3_xgb = xgb_df.sort_values(by = 'importance', ascending=False).head(3)
+    print(top3_xgb)
+    print(X)
+    print(f'f12:{X.columns[12]}, f8:{X.columns[8]}, f0:{X.columns[0]}')
     accuracy = accuracy_score(y_test, y_test_pred)
+    precision = precision_score(y_test, y_test_pred)
+    recall = recall_score(y_test, y_test_pred)
+    f1 = f1_score(y_test, y_test_pred)
     print(f'accuracy:{accuracy:.3f}')
-    #final XGBoost test accuracy:0.838
+    print(f'XGBoost test accuracy:{accuracy:.3f}')
+    print(f'XGBoost test precision score:{precision:.3f}')
+    print(f'XGBoost test recall score:{recall:.3f}')
+    print(f'XGBoost test f1 score:{f1:.3f}')
+    #final XGBoost test accuracy:0.838, precision score:0.800, recall score:0.757, f1 score:0.778
 
