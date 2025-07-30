@@ -135,11 +135,11 @@ You can click the code files below to check each step:
   - Clean data and do feature engineering
 - [logistic model code](./code/logistic_model.py)
   - Train logistic regression and tune C value
-- [XGBoost model code](./code/XGBoost_model)
+- [XGBoost model code](./code/XGBoost_model.py)
   -  Train XGBoost and tune hyperparameters
-- [logistic predict code](./code/logistic_predict)
+- [logistic predict code](./code/logistic_predict.py)
   - Predict and output result with logistic model
-- [XGBoost predict code](./code/XGBoost_predict)
+- [XGBoost predict code](./code/XGBoost_predict.py)
   - Predict and output result with XGBoost model
 
 ## Conclusion
