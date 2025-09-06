@@ -157,11 +157,8 @@ This project analysed the Titanic passenger dataset and used machine learning mo
 I think this project not only helps me strengthen my understanding on data preprocess and model building but also on real-world task of machine learning. I am still improving and learning knowledge of machine learning field. I think this project reflects my learning journey more than a polished final product.
 
 ## Reflection
-This was my first machine learning project and I learned a lot from it.
-
-- I try feature engineering like one-hot and extract title from `Name`, It's very fun but not always easy.
-- I also noticed model type and tuning can change the result a lot.
-- Sometimes I am not sure how to do things like learning curve or how to see feature importance. But after I try and google some things, I feel better with it.
+This was my first machine learning project and I learned a lot from it. I tried feature engineering like one-hot and extract title from `Name`, It's very fun but not always easy. I noticed model type and tuning can change the result a lot. I also found that the reason why **XGBoost** model performs better is that it is better at capturing non-linear features than **Logistic Regression** model. Although **Logistic Regression** can also learn non-linear patterns through feature engineering, it's hard to know which features to add in advance. That's why **XGBoost** shows better results than **Logistic Regression** in the end. Besides, I wasn’t always sure how to do things like plotting a learning curve or checking feature importance. But after trying and googling some things, I started to feel more confident with it.
+  
 
 In the future, I hope to explore deep learning and more advanced data problems. I think this project really helps me understand machine learning more.
 
